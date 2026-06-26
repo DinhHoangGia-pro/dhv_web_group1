@@ -1,0 +1,36 @@
+1. Lenh pull docker
+docker pull mysql:8.0
+
+
+2. Lenh chạy docker
+
+docker run -d \
+  --name mysql-db \
+  -e MYSQL_ROOT_PASSWORD=Vietnam@123 \
+  -e MYSQL_DATABASE=appdb \
+  -p 3306:3306 \
+  mysql:8.0
+
+
+3. Cài Extension tên là MySQL
+
+4. Tạo bảng 
+
+  CREATE TABLE records(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    stname VARCHAR(255),
+    course VARCHAR(255),
+    fee INT
+) COMMENT '';
+
+
+5. Chạy lab
+cd lab3
+mvn tomcat7:run
+
+
+6. Kiểm tra docker
+docker ps -a
+
+7. Chạy docker nếu chưa thay 3306
+docker start mysql_db
